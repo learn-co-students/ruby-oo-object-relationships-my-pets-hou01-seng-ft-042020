@@ -26,7 +26,7 @@ class Owner
 
   # returns the number of owners that have been created
   def self.count
-    @@owners.count
+    self.all.count
   end
 
   # resets the owners that have been created
@@ -56,12 +56,12 @@ class Owner
 
   # makes each dog the owner owns moods happy
   def walk_dogs
-    dogs.map {|dog| dog.mood = "happy"}
+    self.dogs.map {|dog| dog.mood = "happy"}
   end
 
   # makes each cat the owner has moods happy
   def feed_cats
-    cats.map {|cat| cat.mood = "happy"}
+    self.cats.map {|cat| cat.mood = "happy"}
   end
 
   # makes every pet nervous
@@ -75,6 +75,6 @@ class Owner
   end
 
   def list_pets
-    "I have #{dogs.count} dog(s), and #{cats.count} cat(s)."
+    "I have #{self.dogs.count} dog(s), and #{self.cats.count} cat(s)."
   end
 end

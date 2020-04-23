@@ -14,7 +14,7 @@ class Owner
   end
 
   def say_species
-    "I am a #{species}."
+    "I am a #{self.species}."
   end
 
   def self.all
@@ -36,9 +36,7 @@ class Owner
   end
 
   def dogs
-    Dog.all.select do |dog|
-      dog.owner == self
-    end
+    Dog.all.select {|dog| dog.owner == self}
   end
 
   def buy_cat(name)
@@ -46,7 +44,7 @@ class Owner
   end
 
   def buy_dog(name)
-    name = Dog.new(name, self)
+    Dog.new(name, self)
   end
 
   def walk_dogs
@@ -61,20 +59,15 @@ class Owner
   end
 
   def feed_cats
-    cats.map do |cat| 
-      cat.mood = 'happy'
-    end
+    cats.each{|cat| cat.mood = 'happy'}
   end
 
   def sell_pets
-    cats.map do |cat| 
-      cat.mood = 'nervous'
-      cat.owner = nil
-    end
+    pets = cats + dogs
 
-    dogs.map do |dog| 
-      dog.mood = 'nervous'
-      dog.owner = nil
+    pets.map do |pet| 
+      pet.mood = 'nervous'
+      pet.owner = nil
     end
   end
 

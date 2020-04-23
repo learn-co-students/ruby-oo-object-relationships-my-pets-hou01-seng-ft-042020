@@ -45,6 +45,10 @@ class Owner
   end
 
   def walk_dogs
+    #make a dog's or many dogs' mood(s) happy
+    #I collected all dogs above so now I need to go through each one and change mood
+    #Dog class was already initialized above so I don't need to do it here 
+    #which means I can use mood inside the method
     self.dogs.each do |dog|
       dog.mood = "happy"
     end
@@ -57,6 +61,8 @@ class Owner
   end
 
   def sell_pets
+    #need to combine dogs and cats
+    #and then follow the logic from last 2 methods
     pets = self.dogs + self.cats
     pets.each do |pet|
       pet.mood = "nervous"
